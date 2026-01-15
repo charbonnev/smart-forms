@@ -69,6 +69,7 @@ function MyForm() {
 
 - [Getting Started](./docs/getting-started.md)
 - [API Reference](./docs/api-reference.md)
+- [Best Practices](./docs/best-practices.md)
 - [Migration Guide](./docs/migration-guide.md)
 
 ## 🎯 Features
