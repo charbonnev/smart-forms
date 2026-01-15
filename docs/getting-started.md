@@ -1,116 +1,247 @@
 # Getting Started with Smart Forms
 
-Smart Forms é uma biblioteca de componentes e hooks para facilitar a criação de formulários em React com validação.
+Smart Forms é uma biblioteca de componentes e hooks para facilitar a criação de formulários em React com validação automática, tipagem forte e UX otimizada.
 
 ## Instalação
 
 ```bash
-# Para o pacote core (agnóstico de UI)
+# Para o adapter Shadcn/UI (inclui o core)
+npm install @much/smart-forms-shadcn
+
+# Ou apenas o core (agnóstico de UI)
 npm install @much/smart-forms-core
 
-# Para o adapter Shadcn/UI
-npm install @much/smart-forms-shadcn
-```
-
-## Dependências Necessárias
-
-```bash
 # Peer dependencies
-npm install react react-hook-form zod
+npm install react react-hook-form zod @hookform/resolvers
 ```
 
 ## Uso Básico
 
-### 1. Schema Factory
-
-Crie schemas de validação de forma declarativa:
-
-```typescript
-import { createSchema } from '@much/smart-forms-core'
-
-const userSchema = createSchema({
-  name: { type: 'text', required: true, minLength: 2 },
-  email: { type: 'email', required: true },
-  age: { type: 'number', required: true, min: 18 },
-  active: { type: 'boolean', required: false }
-})
-```
-
-### 2. Formulário Simples
+### 1. Formulário Simples
 
 ```tsx
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { SmartInput, SmartCheckbox } from '@much/smart-forms-shadcn'
+import { SmartInput, createSchema } from '@much/smart-forms-shadcn'
 
-function UserForm() {
+// 1. Definir o schema
+const schema = createSchema({
+  nome: { type: 'text', required: true },
+  email: { type: 'email', required: true },
+})
+
+// 2. Criar o formulário
+export function MeuForm() {
   const form = useForm({
-    resolver: zodResolver(userSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      age: 0,
-      active: false
-    }
+    resolver: zodResolver(schema),
+    mode: 'onChange',
   })
 
   const onSubmit = (data) => console.log(data)
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
-      <SmartInput form={form} name="name" label="Nome" />
-      <SmartInput form={form} name="email" label="Email" type="email" />
-      <SmartInput form={form} name="age" label="Idade" type="number" />
-      <SmartCheckbox form={form} name="active" label="Ativo" />
+      <SmartInput
+        form={form}
+        name="nome"
+        label="Nome Completo"
+        placeholder="Digite seu nome"
+        required
+      />
+      
+      <SmartInput
+        form={form}
+        name="email"
+        label="E-mail"
+        type="email"
+        placeholder="email@exemplo.com"
+        required
+      />
+      
       <button type="submit">Enviar</button>
     </form>
   )
 }
 ```
 
+### 2. Validações Avançadas
+
+```tsx
+const schema = createSchema({
+  // Campo obrigatório com mensagem customizada
+  nome: {
+    type: 'text',
+    required: true,
+    message: 'Nome é obrigatório!',
+  },
+  
+  // Campo com tamanho mínimo e máximo
+  senha: {
+    type: 'text',
+    required: true,
+    minLength: 8,
+    maxLength: 20,
+  },
+  
+  // Número com range
+  idade: {
+    type: 'number',
+    required: true,
+    min: 18,
+    max: 120,
+  },
+  
+  // Com regex customizado
+  placa: {
+    type: 'text',
+    required: true,
+    pattern: /^[A-Z]{3}-\d{4}$/,
+  },
+})
+```
+
 ### 3. Formulário Multi-Etapas
 
 ```tsx
-import { useStepForm } from '@much/smart-forms-shadcn'
+import { useStepForm, SmartStepIndicator } from '@much/smart-forms-shadcn'
 
-function MultiStepForm() {
+function FormularioSteps() {
   const form = useForm({ resolver: zodResolver(schema) })
   
   const {
     currentStep,
-    totalSteps,
     nextStep,
     prevStep,
-    goToStep,
     canAccessStep,
-    isStepCompleted
+    isStepCompleted,
   } = useStepForm(form, 3, [
-    ['name', 'email'],
-    ['address', 'city'],
-    ['phone', 'notes']
+    ['nome', 'email'],          // Etapa 1
+    ['cep', 'logradouro'],      // Etapa 2
+    ['senha', 'confirmar'],     // Etapa 3
   ])
 
-  // Renderize os campos da etapa atual...
+  return (
+    <>
+      <SmartStepIndicator
+        currentStep={currentStep}
+        totalSteps={3}
+        labels={['Dados', 'Endereço', 'Senha']}
+      />
+      
+      {currentStep === 1 && <Step1 form={form} />}
+      {currentStep === 2 && <Step2 form={form} />}
+      {currentStep === 3 && <Step3 form={form} />}
+      
+      <div className="flex gap-2">
+        {currentStep > 1 && (
+          <button onClick={prevStep}>Anterior</button>
+        )}
+        {currentStep < 3 && (
+          <button onClick={nextStep}>Próximo</button>
+        )}
+      </div>
+    </>
+  )
 }
 ```
 
 ## Componentes Disponíveis
 
-### Core (Agnóstico de UI)
+### SmartInput
 
-- `SmartFormContainer` - Container para formulários
-- `SmartStepIndicator` - Indicador de etapas
-- `useStepForm` - Hook para formulários multi-etapas
-- `useSmartInput` - Hook para manipulação de inputs
-- `createSchema` - Factory para criar schemas Zod
-- `extendSchema` - Extender schemas existentes
+Input principal com todas as funcionalidades:
 
-### Adapter Shadcn/UI
+```tsx
+<SmartInput
+  form={form}                    // React Hook Form instance
+  name="campo"                   // Nome do campo
+  label="Rótulo"                 // Label do campo
+  type="text"                    // Tipo do input
+  placeholder="Digite algo"      // Placeholder
+  required={true}                // Campo obrigatório?
+  disabled={false}               // Desabilitado?
+  description="Texto de ajuda"   // Descrição abaixo
+  className="classe-custom"      // CSS extra
+  maxLength={100}                // Máximo de caracteres
+  onCepChange={(value) => {      // Callback para CEP
+    // Buscar endereço via API
+  }}
+/>
+```
 
-- `SmartInput` - Campo de texto com validações
-- `SmartCurrencyInput` - Campo monetário
-- `SmartSelect` - Campo de seleção
-- `SmartCheckbox` - Checkbox
+### SmartCurrencyInput
+
+Para valores monetários:
+
+```tsx
+<SmartCurrencyInput
+  form={form}
+  name="valor"
+  label="Valor"
+  placeholder="0,00"
+  required={true}
+/>
+```
+
+### SmartCheckbox
+
+Checkboxes estilizados:
+
+```tsx
+<SmartCheckbox
+  form={form}
+  name="aceito_termos"
+  label="Aceito os termos"
+  required={true}
+  description="Li e concordo com os termos"
+/>
+```
+
+### SmartSelect
+
+Select dropdown:
+
+```tsx
+<SmartSelect
+  form={form}
+  name="estado_civil"
+  label="Estado Civil"
+  options={[
+    { value: 'solteiro', label: 'Solteiro' },
+    { value: 'casado', label: 'Casado' },
+    { value: 'divorciado', label: 'Divorciado' },
+  ]}
+/>
+```
+
+## Exemplo: Auto-preenchimento de CEP
+
+```tsx
+const handleCEPChange = async (cep: string) => {
+  if (cep.length === 9) {
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`)
+      const data = await response.json()
+      
+      if (!data.erro) {
+        form.setValue('logradouro', data.logradouro)
+        form.setValue('municipio', data.localidade)
+        form.setValue('uf', data.uf)
+      }
+    } catch (error) {
+      console.error('Erro ao buscar CEP:', error)
+    }
+  }
+}
+
+<SmartInput
+  form={form}
+  name="cep"
+  type="cep"
+  label="CEP"
+  onCepChange={handleCEPChange}
+/>
+```
 
 ## Tipos de Campo Suportados
 
