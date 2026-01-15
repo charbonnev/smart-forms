@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Uma biblioteca de componentes e hooks para facilitar a criação de formulários em React com validação",
   "private": true,
-  "main": "index.js",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -15,7 +15,6 @@
   "keywords": ["react", "forms", "validation", "hooks", "components"],
   "author": "Much",
   "license": "MIT",
-  "type": "commonjs",
   "devDependencies": {
     "@types/node": "^25.0.8",
     "@types/react": "^19.2.8",
