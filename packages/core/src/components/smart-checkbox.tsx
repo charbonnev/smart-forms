@@ -1,5 +1,5 @@
 import React from 'react'
-import { UseFormReturn, Path } from 'react-hook-form'
+import { UseFormReturn, Path, ControllerRenderProps } from 'react-hook-form'
 import { useSmartInput } from '../hooks/use-smart-input'
 
 // Interface para componentes de formulário (serão injetados pelo adapter)
@@ -46,7 +46,7 @@ export function SmartCheckbox<T extends Record<string, any>>({
     <FormField
       control={form.control}
       name={name}
-      render={({ field }) => (
+      render={({ field }: { field: ControllerRenderProps<T> }) => (
         <FormItem className={cn('space-y-2', className)}>
           <div className={cn(
             'flex items-center space-x-3 space-y-0 rounded-lg border border-slate-200 p-4',

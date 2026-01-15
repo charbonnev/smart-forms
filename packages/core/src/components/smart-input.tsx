@@ -1,5 +1,5 @@
 import React from 'react'
-import { UseFormReturn, Path } from 'react-hook-form'
+import { UseFormReturn, Path, ControllerRenderProps } from 'react-hook-form'
 import { useSmartInput } from '../hooks/use-smart-input'
 
 // Interface para componentes de formulário (serão injetados pelo adapter)
@@ -94,7 +94,7 @@ export function SmartInput<T extends Record<string, any>>({
     <FormField
       control={form.control}
       name={name}
-      render={({ field }) => (
+      render={({ field }: { field: ControllerRenderProps<T> }) => (
         <FormItem>
           <FormLabel className="text-sm font-medium text-slate-700">
             {label}
@@ -107,7 +107,7 @@ export function SmartInput<T extends Record<string, any>>({
               disabled={disabled}
               className={`${getTypeClasses()} ${className}`}
               maxLength={maxLength}
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 if (type === 'number') {
                   handleNumberChange(e.target.value)
                 } else if (type === 'currency') {

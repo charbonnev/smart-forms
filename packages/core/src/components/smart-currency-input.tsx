@@ -1,5 +1,5 @@
 import React from 'react'
-import { UseFormReturn, Path } from 'react-hook-form'
+import { UseFormReturn, Path, ControllerRenderProps } from 'react-hook-form'
 import { useSmartInput } from '../hooks/use-smart-input'
 
 // Interface para componentes de formulário (serão injetados pelo adapter)
@@ -50,7 +50,7 @@ export function SmartCurrencyInput<T extends Record<string, any>>({
     <FormField
       control={form.control}
       name={name}
-      render={({ field }) => (
+      render={({ field }: { field: ControllerRenderProps<T> }) => (
         <FormItem>
           <FormLabel className="text-sm font-medium text-slate-700">
             {label}
@@ -59,9 +59,9 @@ export function SmartCurrencyInput<T extends Record<string, any>>({
           <FormControl>
             <CurrencyInput
               value={field.value || undefined}
-              onChange={(value) => {
+              onChange={(value: string) => {
                 // Se apagar tudo, seta como undefined para falhar na validação
-                const numValue = (typeof value === 'string' && value === '') || value === 0 ? undefined : value
+                const numValue = (typeof value === 'string' && value === '') || (typeof value === 'number' && value === 0) ? undefined : value
                 field.onChange(numValue)
                 form.clearErrors(name)
               }}
