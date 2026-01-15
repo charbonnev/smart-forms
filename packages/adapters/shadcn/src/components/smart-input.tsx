@@ -1,4 +1,4 @@
-import { SmartInput as CoreSmartInput } from '@much/smart-forms-core'
+import { SmartInput as CoreSmartInput } from '@charbonnev/smart-forms-core'
 import { Input } from '@/components/ui/input'
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
 

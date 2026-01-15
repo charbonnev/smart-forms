@@ -1,4 +1,4 @@
-import { SmartSelect as CoreSmartSelect } from '@much/smart-forms-core'
+import { SmartSelect as CoreSmartSelect } from '@charbonnev/smart-forms-core'
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
 
 interface SmartSelectProps<T extends Record<string, any>> {

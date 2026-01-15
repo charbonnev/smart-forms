@@ -1,4 +1,4 @@
-import { SmartCurrencyInput as CoreSmartCurrencyInput } from '@much/smart-forms-core'
+import { SmartCurrencyInput as CoreSmartCurrencyInput } from '@charbonnev/smart-forms-core'
 import { CurrencyInput } from '@/components/ui/currency-input'
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
 

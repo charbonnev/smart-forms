@@ -5,7 +5,7 @@ export { SmartSelect } from './components/smart-select'
 export { SmartCheckbox } from './components/smart-checkbox'
 
 // Import direto do core (sem re-export)
-import * as Core from '@much/smart-forms-core'
+import * as Core from '@charbonnev/smart-forms-core'
 
 // Export manual dos componentes do core
 export const SmartFormContainer = Core.SmartFormContainer

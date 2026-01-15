@@ -20,7 +20,7 @@
     "react-hook-form": "^7.0.0"
   },
   "dependencies": {
-    "@charbonnev/smart-forms-core": "workspace:*"
+    "@charbonnev/smart-forms-core": "^0.1.0"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
