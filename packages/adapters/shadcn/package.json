@@ -4,7 +4,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
     "build": "tsup",
@@ -14,14 +17,14 @@
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-hook-form": "^7.0.0",
-    "@much/smart-forms-core": "workspace:*"
+    "react-hook-form": "^7.0.0"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
     "@types/react": "^18.0.0",
     "react": "^18.0.0",
-    "react-hook-form": "^7.0.0"
+    "react-hook-form": "^7.0.0",
+    "@much/smart-forms-core": "file:../../core"
   }
 }
