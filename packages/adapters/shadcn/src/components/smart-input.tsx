@@ -1,6 +1,6 @@
 import { SmartInput as CoreSmartInput } from '@charbonnev/smart-forms-core'
-import { Input } from '@/components/ui/input'
-import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
+import { Input } from './ui/input'
+import { FormField, FormItem, FormLabel, FormControl, FormMessage } from './ui/form'
 
 interface SmartInputProps<T extends Record<string, any>> {
   form: any

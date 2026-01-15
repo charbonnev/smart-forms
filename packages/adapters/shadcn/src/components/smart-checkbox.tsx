@@ -1,5 +1,5 @@
 import { SmartCheckbox as CoreSmartCheckbox } from '@charbonnev/smart-forms-core'
-import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
+import { FormField, FormItem, FormLabel, FormControl, FormMessage } from './ui/form'
 
 interface SmartCheckboxProps<T extends Record<string, any>> {
   form: any

@@ -1,6 +1,6 @@
 import { SmartCurrencyInput as CoreSmartCurrencyInput } from '@charbonnev/smart-forms-core'
-import { CurrencyInput } from '@/components/ui/currency-input'
-import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
+import { CurrencyInput } from './ui/currency-input'
+import { FormField, FormItem, FormLabel, FormControl, FormMessage } from './ui/form'
 
 interface SmartCurrencyInputProps<T extends Record<string, any>> {
   form: any

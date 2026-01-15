@@ -14,7 +14,7 @@ export const useStepForm = Core.useStepForm
 export const useSmartInput = Core.useSmartInput
 export const createSchema = Core.createSchema
 export const extendSchema = Core.extendSchema
-export const BASE_SCHEMAS = Core.BASE_SCHEMAS
+export const BASE_SCHEMAS: typeof Core.BASE_SCHEMAS = Core.BASE_SCHEMAS
 
 // Export dos tipos
 export type FieldType = Core.FieldType
