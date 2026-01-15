@@ -10,7 +10,13 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
-    "clean": "turbo run clean"
+    "test:coverage": "turbo run test:coverage",
+    "clean": "turbo run clean",
+    "version:patch": "pnpm --filter @charbonnev/smart-forms-core version patch && pnpm --filter @charbonnev/smart-forms-shadcn version patch",
+    "version:minor": "pnpm --filter @charbonnev/smart-forms-core version minor && pnpm --filter @charbonnev/smart-forms-shadcn version minor",
+    "version:major": "pnpm --filter @charbonnev/smart-forms-core version major && pnpm --filter @charbonnev/smart-forms-shadcn version major",
+    "publish:local": "pnpm build && pnpm --filter @charbonnev/smart-forms-core publish --no-git-checks && pnpm --filter @charbonnev/smart-forms-shadcn publish --no-git-checks",
+    "check": "pnpm lint && pnpm typecheck && pnpm test"
   },
   "keywords": ["react", "forms", "validation", "hooks", "components"],
   "author": "Much",
