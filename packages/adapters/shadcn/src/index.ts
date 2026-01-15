@@ -4,16 +4,19 @@ export { SmartCurrencyInput } from './components/smart-currency-input'
 export { SmartSelect } from './components/smart-select'
 export { SmartCheckbox } from './components/smart-checkbox'
 
-// Exportar componentes do core que não dependem de UI
-export { 
-  SmartFormContainer, 
-  SmartStepIndicator,
-  useStepForm,
-  useSmartInput,
-  createSchema,
-  extendSchema,
-  BASE_SCHEMAS,
-  type FieldType,
-  type FieldConfig,
-  type SchemaConfig
-} from '@much/smart-forms-core'
+// Import direto do core (sem re-export)
+import * as Core from '@much/smart-forms-core'
+
+// Export manual dos componentes do core
+export const SmartFormContainer = Core.SmartFormContainer
+export const SmartStepIndicator = Core.SmartStepIndicator
+export const useStepForm = Core.useStepForm
+export const useSmartInput = Core.useSmartInput
+export const createSchema = Core.createSchema
+export const extendSchema = Core.extendSchema
+export const BASE_SCHEMAS = Core.BASE_SCHEMAS
+
+// Export dos tipos
+export type FieldType = Core.FieldType
+export type FieldConfig = Core.FieldConfig
+export type SchemaConfig = Core.SchemaConfig
