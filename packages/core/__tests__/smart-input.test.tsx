@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useForm } from 'react-hook-form'
@@ -195,7 +196,7 @@ describe('SmartInput', () => {
         />
       )
 
-      const label = screen.getByText('Campo Acessível')
+      const label = screen.getByText('Campo Acessível') as HTMLLabelElement
       const input = screen.getByLabelText('Campo Acessível')
       
       expect(label.htmlFor).toBe(input.id)
@@ -253,7 +254,7 @@ describe('SmartInput', () => {
         />
       )
 
-      const input = screen.getByPlaceholderText('Placeholder')
+      const input = screen.getByPlaceholderText('Placeholder') as HTMLInputElement
       expect(input).toBeInTheDocument()
       expect(input.value).toBe('')
     })
