@@ -1,0 +1,29 @@
+{
+  "name": "smart-forms",
+  "version": "1.0.0",
+  "description": "Uma biblioteca de componentes e hooks para facilitar a criação de formulários em React com validação",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "clean": "turbo run clean"
+  },
+  "keywords": ["react", "forms", "validation", "hooks", "components"],
+  "author": "Much",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "@types/react": "^19.2.8",
+    "turbo": "^2.7.4",
+    "typescript": "^5.9.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ]
+}
