@@ -1,6 +1,6 @@
 {
   "name": "@charbonnev/smart-forms-shadcn",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -20,7 +20,7 @@
     "react-hook-form": "^7.0.0"
   },
   "dependencies": {
-    "@charbonnev/smart-forms-core": "^0.1.0"
+    "@charbonnev/smart-forms-core": "^0.1.1"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
