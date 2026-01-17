@@ -67,8 +67,8 @@ importers:
   packages/adapters/shadcn:
     dependencies:
       '@charbonnev/smart-forms-core':
-        specifier: workspace:*
-        version: link:../../core
+        specifier: ^0.1.0
+        version: 0.1.0(react-hook-form@7.71.1(react@18.3.1))(react@18.3.1)(zod@3.25.76)
     devDependencies:
       '@types/react':
         specifier: ^18.0.0
@@ -89,8 +89,8 @@ importers:
   packages/core:
     devDependencies:
       '@hookform/resolvers':
-        specifier: ^3.3.2
-        version: 3.10.0(react-hook-form@7.71.1(react@18.3.1))
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.71.1(react@18.3.1))
       '@swc/core':
         specifier: ^1.15.8
         version: 1.15.8
@@ -126,7 +126,7 @@ importers:
         version: 7.71.1(react@18.3.1)
       ts-jest:
         specifier: ^29.1.1
-        version: 29.4.6(@babel/core@7.28.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.6))(esbuild@0.27.2)(jest-util@29.7.0)(jest@29.7.0(@types/node@25.0.8))(typescript@5.9.3)
+        version: 29.4.6(@babel/core@7.28.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.6))(jest-util@29.7.0)(jest@29.7.0(@types/node@25.0.8))(typescript@5.9.3)
       tsup:
         specifier: ^8.0.0
         version: 8.5.1(@swc/core@1.15.8)(postcss@8.4.31)(typescript@5.9.3)
@@ -311,6 +311,13 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
+  '@charbonnev/smart-forms-core@0.1.0':
+    resolution: {integrity: sha512-2mmvTb10l1s7f0trIEjbtDsggNx/AEm/qpzCjOXXPsYm/rYqNPTfAz+Muuzd3+ioQhcQ8G4/Ay/qRLEXsVOZHg==}
+    peerDependencies:
+      react: ^18.0.0
+      react-hook-form: ^7.0.0
+      zod: ^3.0.0
+
   '@emnapi/core@1.8.1':
     resolution: {integrity: sha512-AvT9QFpxK0Zd8J0jopedNm+w/2fIzvtPKPjqyw9jwvBaReTTqPBk9Hixaz7KbjimP+QNz605/XnjFcDAL2pqBg==}
 
@@ -494,10 +501,10 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@hookform/resolvers@3.10.0':
-    resolution: {integrity: sha512-79Dv+3mDF7i+2ajj7SkypSKHhl1cbln1OGavqrsF7p6mbUv11xpqpacPsGDCTRvCSjEEIez2ef1NveSVL3b0Ag==}
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
     peerDependencies:
-      react-hook-form: ^7.0.0
+      react-hook-form: ^7.55.0
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -828,6 +835,9 @@ packages:
 
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
+
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@swc/core-darwin-arm64@1.15.8':
     resolution: {integrity: sha512-M9cK5GwyWWRkRGwwCbREuj6r8jKdES/haCZ3Xckgkl8MUQJZA3XB7IXXK1IXRNeLjg6m7cnoMICpXv1v1hlJOg==}
@@ -3563,6 +3573,12 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
+  '@charbonnev/smart-forms-core@0.1.0(react-hook-form@7.71.1(react@18.3.1))(react@18.3.1)(zod@3.25.76)':
+    dependencies:
+      react: 18.3.1
+      react-hook-form: 7.71.1(react@18.3.1)
+      zod: 3.25.76
+
   '@emnapi/core@1.8.1':
     dependencies:
       '@emnapi/wasi-threads': 1.1.0
@@ -3680,8 +3696,9 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@hookform/resolvers@3.10.0(react-hook-form@7.71.1(react@18.3.1))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.71.1(react@18.3.1))':
     dependencies:
+      '@standard-schema/utils': 0.3.0
       react-hook-form: 7.71.1(react@18.3.1)
 
   '@humanwhocodes/config-array@0.13.0':
@@ -4041,6 +4058,8 @@ snapshots:
   '@sinonjs/fake-timers@10.3.0':
     dependencies:
       '@sinonjs/commons': 3.0.1
+
+  '@standard-schema/utils@0.3.0': {}
 
   '@swc/core-darwin-arm64@1.15.8':
     optional: true
@@ -6797,7 +6816,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-jest@29.4.6(@babel/core@7.28.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.6))(esbuild@0.27.2)(jest-util@29.7.0)(jest@29.7.0(@types/node@25.0.8))(typescript@5.9.3):
+  ts-jest@29.4.6(@babel/core@7.28.6)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.6))(jest-util@29.7.0)(jest@29.7.0(@types/node@25.0.8))(typescript@5.9.3):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
@@ -6815,7 +6834,6 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.28.6)
-      esbuild: 0.27.2
       jest-util: 29.7.0
 
   tsconfig-paths@3.15.0:
