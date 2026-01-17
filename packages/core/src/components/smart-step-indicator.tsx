@@ -60,7 +60,7 @@ export function SmartStepIndicator({
                   onClick={() => onStepClick && onStepClick(step)}
                   disabled={!canAccess && step > currentStep}
                   className={cn(
-                    'flex items-center justify-center w-10 h-10 rounded-full border-2 font-medium text-sm transition-colors flex-shrink-0 z-10 bg-white',
+                    'flex items-center justify-center w-10 h-10 rounded-full border-2 font-medium text-sm transition-colors flex-shrink-0 z-10',
                     isActive
                       ? 'border-blue-500 bg-blue-500 text-white'
                       : isCompleted
