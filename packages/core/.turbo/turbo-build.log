@@ -1,6 +1,6 @@
 
 
-> @charbonnev/smart-forms-core@0.1.1 build /home/charlienux/dev/github/much/smart-forms/packages/core
+> @charbonnev/smart-forms-core@0.1.2 build /home/charlienux/dev/github/much/smart-forms/packages/core
 > tsup
 
 [34mCLI[39m Building entry: {"index":"src/index.ts","lib/index":"src/lib/index.ts","hooks/index":"src/hooks/index.ts","components/index":"src/components/index.ts"}
@@ -11,26 +11,26 @@
 [34mCLI[39m Cleaning output folder
 [34mESM[39m Build start
 [34mCJS[39m Build start
-[32mESM[39m [1mdist/lib/index.mjs            [22m[32m9.40 KB[39m
-[32mESM[39m [1mdist/hooks/index.mjs          [22m[32m12.07 KB[39m
-[32mESM[39m [1mdist/components/index.mjs     [22m[32m28.35 KB[39m
-[32mESM[39m [1mdist/index.mjs                [22m[32m46.09 KB[39m
-[32mESM[39m [1mdist/lib/index.mjs.map        [22m[32m16.15 KB[39m
-[32mESM[39m [1mdist/hooks/index.mjs.map      [22m[32m13.11 KB[39m
-[32mESM[39m [1mdist/index.mjs.map            [22m[32m76.23 KB[39m
-[32mESM[39m [1mdist/components/index.mjs.map [22m[32m53.25 KB[39m
-[32mESM[39m ⚡️ Build success in 84ms
 [32mCJS[39m [1mdist/lib/index.js            [22m[32m11.92 KB[39m
 [32mCJS[39m [1mdist/hooks/index.js          [22m[32m14.53 KB[39m
-[32mCJS[39m [1mdist/index.js                [22m[32m51.66 KB[39m
-[32mCJS[39m [1mdist/components/index.js     [22m[32m33.31 KB[39m
+[32mCJS[39m [1mdist/index.js                [22m[32m51.10 KB[39m
+[32mCJS[39m [1mdist/components/index.js     [22m[32m32.75 KB[39m
 [32mCJS[39m [1mdist/lib/index.js.map        [22m[32m18.98 KB[39m
-[32mCJS[39m [1mdist/index.js.map            [22m[32m84.63 KB[39m
 [32mCJS[39m [1mdist/hooks/index.js.map      [22m[32m16.05 KB[39m
-[32mCJS[39m [1mdist/components/index.js.map [22m[32m60.60 KB[39m
-[32mCJS[39m ⚡️ Build success in 84ms
+[32mCJS[39m [1mdist/components/index.js.map [22m[32m59.46 KB[39m
+[32mCJS[39m [1mdist/index.js.map            [22m[32m83.49 KB[39m
+[32mCJS[39m ⚡️ Build success in 69ms
+[32mESM[39m [1mdist/lib/index.mjs            [22m[32m9.40 KB[39m
+[32mESM[39m [1mdist/index.mjs                [22m[32m46.19 KB[39m
+[32mESM[39m [1mdist/hooks/index.mjs          [22m[32m12.07 KB[39m
+[32mESM[39m [1mdist/components/index.mjs     [22m[32m28.45 KB[39m
+[32mESM[39m [1mdist/lib/index.mjs.map        [22m[32m16.15 KB[39m
+[32mESM[39m [1mdist/hooks/index.mjs.map      [22m[32m13.11 KB[39m
+[32mESM[39m [1mdist/index.mjs.map            [22m[32m76.15 KB[39m
+[32mESM[39m [1mdist/components/index.mjs.map [22m[32m53.17 KB[39m
+[32mESM[39m ⚡️ Build success in 70ms
 DTS Build start
-DTS ⚡️ Build success in 2421ms
+DTS ⚡️ Build success in 2448ms
 DTS dist/index.d.mts            552.00 B
 DTS dist/lib/index.d.mts        1.90 KB
 DTS dist/hooks/index.d.mts      1.23 KB
