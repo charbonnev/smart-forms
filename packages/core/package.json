@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "@swc/core": "^1.15.8",
+    "@swc/core": "^1.15.10",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
