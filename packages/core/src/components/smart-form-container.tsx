@@ -11,6 +11,8 @@ interface SmartFormContainerProps {
   subtitle?: string
   className?: string
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+  backUrl?: string
+  backLabel?: string
 }
 
 /**
@@ -23,6 +25,8 @@ export function SmartFormContainer({
   subtitle,
   className,
   maxWidth = '2xl',
+  backUrl,
+  backLabel = 'Voltar',
 }: SmartFormContainerProps) {
   const maxWidthClass = {
     sm: 'max-w-sm',
@@ -37,6 +41,21 @@ export function SmartFormContainer({
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 px-4">
       <div className={cn('mx-auto', maxWidthClass, className)}>
+        {/* Back Button */}
+        {backUrl && (
+          <div className="mb-6">
+            <a
+              href={backUrl}
+              className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              {backLabel}
+            </a>
+          </div>
+        )}
+
         {/* Header */}
         {(title || subtitle) && (
           <div className="text-center mb-12">
