@@ -39,7 +39,7 @@
     "zod": "^3.0.0"
   },
   "devDependencies": {
-    "@hookform/resolvers": "^3.3.2",
+    "@hookform/resolvers": "^5.2.2",
     "@swc/core": "^1.15.8",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
