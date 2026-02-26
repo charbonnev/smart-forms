@@ -10,17 +10,17 @@
   },
   "dependencies": {
     "next": "^14.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "@charbonnev/smart-forms-core": "workspace:*",
     "@charbonnev/smart-forms-shadcn": "workspace:*",
-    "react-hook-form": "^7.0.0",
+    "react-hook-form": "^7.71.2",
     "zod": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "typescript": "^5.0.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "^14.0.0"
