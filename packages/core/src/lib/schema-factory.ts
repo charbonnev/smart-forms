@@ -3,7 +3,7 @@ import { z } from 'zod'
 /**
  * Tipos de campo disponíveis na Schema Factory
  */
-export type FieldType = 
+export type FieldType =
   | 'text'
   | 'email'
   | 'number'
@@ -16,6 +16,7 @@ export type FieldType =
   | 'phone'
   | 'cnpj'
   | 'cpf'
+  | 'fk_select'
 
 /**
  * Configuração de um campo para a Schema Factory
@@ -67,9 +68,9 @@ function createFieldValidator(fieldName: string, config: FieldConfig) {
   if (!config) {
     throw new Error(`Config for field ${fieldName} is null or undefined`)
   }
-  
+
   const { type, required = false, message, ...rules } = config
-  let validator: z.ZodString | z.ZodNumber | z.ZodBoolean | z.ZodArray<any> | z.ZodEffects<any> | z.ZodDefault<any> | z.ZodOptional<any>
+  let validator: z.ZodString | z.ZodNumber | z.ZodBoolean | z.ZodArray<any> | z.ZodEffects<any> | z.ZodDefault<any> | z.ZodOptional<any> | z.ZodUnion<any>
 
   // Define o tipo base
   switch (type) {
@@ -139,6 +140,10 @@ function createFieldValidator(fieldName: string, config: FieldConfig) {
       validator = z.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, message || DEFAULT_MESSAGES.cpf)
       break
 
+    case 'fk_select':
+      validator = z.union([z.string(), z.number()])
+      break
+
     default:
       validator = z.string()
   }
@@ -156,6 +161,11 @@ function createFieldValidator(fieldName: string, config: FieldConfig) {
     } else if (type === 'array') {
       // Para arrays
       validator = (validator as z.ZodArray<any>).min(1, message || DEFAULT_MESSAGES.required)
+    } else if (type === 'fk_select') {
+      // Para FK Select (pode ser string ou number)
+      validator = (validator as z.ZodUnion<[z.ZodString, z.ZodNumber]>).refine((val) => val !== undefined && val !== null && val !== '', {
+        message: message || DEFAULT_MESSAGES.required,
+      })
     }
   } else if (!required && type !== 'boolean') {
     validator = (validator as any).optional()
@@ -175,7 +185,7 @@ export function createSchema<T extends SchemaConfig>(config: T) {
     if (fieldName.startsWith('_') || typeof fieldConfig === 'function') {
       return
     }
-    
+
     schema[fieldName] = createFieldValidator(fieldName, fieldConfig)
   })
 
