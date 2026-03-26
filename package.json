@@ -22,10 +22,10 @@
   "author": "Much",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^25.0.8",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.8",
     "turbo": "^2.7.4",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "workspaces": [
     "packages/*",
